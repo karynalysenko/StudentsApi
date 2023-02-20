@@ -15,7 +15,7 @@ namespace StudentsApi1.Data
         //        new Skill { Id = 2, Name = "Frenzy", Damage = 20 },
         //        new Skill { Id = 3, Name = "Blizzard", Damage = 50 }
 
-
+        //
         //        );
         //}
         public DbSet<Student> Students { get; set; }
