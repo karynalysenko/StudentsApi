@@ -1,18 +1,15 @@
-﻿using System.Text.Json.Serialization;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace StudentsApi1.Models
-{
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum Course
+{    
+    public class Course
     {
-        LEIM = 1,
-
-        LESI = 2,
-
-        LEBIS = 3,
-
-        LEMP = 4
+        [Key]
+        public int CourseId { get; set; }
+        public string? CourseName { get; set; } 
+        //public List<Student>? Students { get; set; } = new List<Student>();
+        //public List<University> Universities { get; set; }
     }
-    //public List<Student>? Students { get; set; }
-
 }

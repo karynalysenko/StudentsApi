@@ -1,18 +1,17 @@
-﻿using System.Text.Json.Serialization;
+﻿//using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudentsApi1.Models
 {
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum University
+    public class University
     {
-        IPCA = 1,
+        [Key]
+        public int UniversityId { get; set; }
+        public string? UniversityName { get; set; }
 
-        UMinho = 2,
+        //public List<Student>? Students { get; set; } = new List<Student>();
+        //public List<Course> Courses { get; set; }
 
-        IPVC = 3,
-
-        PolitecnicoAveiro = 4,
-
-        ISEP = 5
     }
 }
+   

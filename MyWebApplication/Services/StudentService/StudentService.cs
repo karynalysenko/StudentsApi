@@ -121,11 +121,6 @@ namespace StudentsApi1.Services.StudentService
 
         }
 
-        public Task<object?> Student()
-        {
-            throw new NotImplementedException();
-        }
-
         //public async Task<ServiceResponse<Student>> AddCharacterSkill(AddCharacterSkillDto newCharacterSkill)
         //{
         //    var response = new ServiceResponse<Student>();

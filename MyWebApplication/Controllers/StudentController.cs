@@ -23,7 +23,9 @@ namespace StudentsApi1.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<Student>>>> Get()
         {
-            return Ok(await _studentService.Student());
+            var response = await _studentService.GetAllStudents();
+
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]
