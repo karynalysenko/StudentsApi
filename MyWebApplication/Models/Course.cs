@@ -9,7 +9,7 @@ namespace StudentsApi1.Models
         [Key]
         public int CourseId { get; set; }
         public string? CourseName { get; set; } 
-        //public List<Student>? Students { get; set; } = new List<Student>();
+
         //public List<University> Universities { get; set; }
     }
 }

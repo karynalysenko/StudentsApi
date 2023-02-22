@@ -28,17 +28,6 @@ namespace StudentsApi1.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<ServiceResponse<List<Student>>>> Delete(int id)
-        {
-            var response = await _studentService.DeleteStudent(id);
-            if (response.Data == null)
-            {
-                return NotFound(response);
-            }
-            return Ok(response);
-        }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<Student>>> GetSingle(int id)
         {
@@ -49,17 +38,6 @@ namespace StudentsApi1.Controllers
         public async Task<ActionResult<ServiceResponse<List<Student>>>> AddStudent(Student newStudent)
         {
             return Ok(await _studentService.AddStudent(newStudent));
-        }
-
-        [HttpPut]
-        public async Task<ActionResult<ServiceResponse<Student>>> UpdateStudent(Student updatedStudent)
-        {
-            var response = await _studentService.UpdateStudent(updatedStudent);
-            if (response.Data == null)
-            {
-                return NotFound(response);
-            }
-            return Ok(response);
         }
     }
 }

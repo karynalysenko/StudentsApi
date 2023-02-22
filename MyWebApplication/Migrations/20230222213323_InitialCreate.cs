@@ -13,19 +13,6 @@ namespace StudentsApi1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Course",
-                columns: table => new
-                {
-                    CourseId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseName = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Course", x => x.CourseId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "University",
                 columns: table => new
                 {
@@ -48,7 +35,7 @@ namespace StudentsApi1.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UniversityId = table.Column<int>(type: "int", nullable: true)
+                    UniversityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,18 +44,8 @@ namespace StudentsApi1.Migrations
                         name: "FK_Students_University_UniversityId",
                         column: x => x.UniversityId,
                         principalTable: "University",
-                        principalColumn: "UniversityId");
-                });
-
-            migrationBuilder.InsertData(
-                table: "Course",
-                columns: new[] { "CourseId", "CourseName" },
-                values: new object[,]
-                {
-                    { 1, "LEIM" },
-                    { 2, "LESI" },
-                    { 3, "LEBIS" },
-                    { 4, "LEMP" }
+                        principalColumn: "UniversityId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -92,9 +69,6 @@ namespace StudentsApi1.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Course");
-
             migrationBuilder.DropTable(
                 name: "Students");
 

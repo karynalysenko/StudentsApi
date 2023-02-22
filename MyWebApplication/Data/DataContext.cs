@@ -19,12 +19,18 @@ namespace StudentsApi1.Data
                 new University { UniversityId = 5, UniversityName = "ISEP" }
                 );
 
-            modelBuilder.Entity<Course>().HasData(
-                new Course { CourseId = 1, CourseName = "LEIM" },
-                new Course { CourseId = 2, CourseName = "LESI" },
-                new Course { CourseId = 3, CourseName = "LEBIS" },
-                new Course { CourseId = 4, CourseName = "LEMP" }
-                );
+            //modelBuilder.Entity<Course>().HasData(
+            //    new Course { CourseId = 1, CourseName = "LEIM" },
+            //    new Course { CourseId = 2, CourseName = "LESI" },
+            //    new Course { CourseId = 3, CourseName = "LEBIS" },
+            //    new Course { CourseId = 4, CourseName = "LEMP" }
+            //    );
+            modelBuilder.Entity<Student>()
+                .HasOne(s => s.University)
+                .WithMany()
+                .HasForeignKey( s => s.UniversityId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
 
         public DbSet<Student> Students { get; set; }
